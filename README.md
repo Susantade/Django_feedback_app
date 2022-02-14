@@ -1,7 +1,7 @@
 # Django_feedback_app
 
-**Introduction**
-This is an app where anyone can write his/her own comment. For this, first he/she have to sign in (if his/her already has an account, otherwise first create an account). After succssful sign in he/she redirected to comment page, where he/she can leave a comment. In this page, he/she will also see other user's comments. There will be an **Filter** button, by clicking this button he/she will show the comments of only sign in (at that time) users.
+**Introduction**<br>
+This is an app where anyone can write his/her own comment. For this, first he/she have to sign in (if his/her already has an account, otherwise first create an account). After successful sign in he/she redirected to comment page, where he/she can leave a comment. In this page, he/she will also see other user's comments. There will be an **Filter** button, by clicking this button he/she will show the comments of only sign in (at that time) users.
 
 **Requirements**
 To run this app we require followings things:
@@ -10,6 +10,10 @@ To run this app we require followings things:
 - Visual Studio Code editor
 - MySQL Database
 - XAMPP Server
+
+**Information**
+- My project name is feedbackApp.
+- My app name is app
 
 **Run**
 1. First create a database in XAMPP server with the same name as specified in the NAME key in DATABASES dictionary in settings.py file (in my case it is **comment1**).
