@@ -1,0 +1,74 @@
+{% include 'app/base.html' %}
+{% load static %}
+
+<html>
+    <head>
+        <title>Comment Page</title>
+        <link rel="stylesheet" href="{% static '/css/comment.css' %}">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+        
+    
+    <script>
+        $().ready(function(){
+
+            $("#commentForm").validate({
+            // in 'rules' user have to specify all the constraints for respective fields
+            rules : {
+            comment : "required"
+           
+            },
+            
+                // in 'messages' user have to specify message as per rules
+            messages : {
+            comment :"Please enter your comment"
+            }
+            });
+            });
+        </script>
+        </head>
+
+    <body>
+        {% if request.session.email %}
+            <h3>Welcome User: {{request.session.email}}</h3>
+        {% endif %}
+
+        {% if messages %}
+        {% for msg in messages %}
+            <h4>{{msg}}</h4>
+        {% endfor %}
+        {% endif %}
+        <p><h3>What would you like to share with world?</h3></p>
+        <form action="{% url 'commentsave' pk=request.session.id %}" method="POST" id="commentForm">
+            {% csrf_token %}
+        <textarea name="comment" id="textarea1" rows=10 cols=70 autofocus="autofocus"></textarea>
+        <input type="submit" class="button" value="Submit" />
+    </form>
+
+        <form action="{% url 'filtering' %}" method="POST" >
+            {% csrf_token %}
+        
+        <div class="output">
+        <div class="container">	
+            <h2><b>Comments</b></h2>&nbsp;
+            <span>
+            <input  type="submit" class="button" name="" value="Filter"><br><br><br> 
+            </span>
+        </div>
+        
+    </form>
+        
+        {% if lists %}
+        {% for comment in lists %}
+        
+        <br><label>{{comment.email}}</label>&nbsp;
+        <textarea id="textarea2" rows=6 cols=30 readonly="readonly">{{comment.comment}}</textarea><br>
+        
+        {% endfor %}
+        {% endif %}
+        </div>
+    </body>
+</html>
+

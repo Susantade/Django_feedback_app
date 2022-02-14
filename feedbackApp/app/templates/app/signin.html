@@ -1,0 +1,68 @@
+{% include 'app/base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title></title>
+	<meta  charset="utf-8" initial="width:devixe-width initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+
+	<!-- Links for JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+  <title>Sign In Page</title>
+
+  <script>
+      $().ready(function(){
+
+          $("#signinForm").validate({
+          // all the constraints for respective fields
+          rules : {
+          email : {
+              required: true
+          },
+          password : {
+              required: true
+          }
+          },
+		      //  messages as per rules
+			  messages : {
+				email : {
+					required:"Please enter your email"
+				},
+				password : {
+					required: "Please enter your password"
+				}
+				}
+				});
+				});
+			  </script>
+</head>
+<center>
+<body>
+	<div class="main">
+<form action="{% url 'signin' %}" method="POST" id="signinForm">
+	{% csrf_token %}
+		<h2 class="title"><b>Sign In</b></h2>
+
+		{% if messages %}
+			{% for msg in messages %}
+				<h4 style="color:red">{{msg}}</h4>
+			{% endfor %}
+		{% endif %}
+
+		<p>Don't have an account? <a class="signup" href="{% url 'signup' %}">Sign Up</a></p>
+		<label class="email">Email</label><br>
+		<input class="emailBox" type="text" name="email" /><br>
+		<label class="password">Password</label><br>
+		<input class="passBox" type="password" name="password" /><br>
+		<a href="{% url 'forgotpassword' %}"><p class="pass">Forgot your password?</p></a>
+		<input class="button" type="submit" name="" value="Sign In" />
+</form>
+	</div>
+</body>
+</center>
+</html>

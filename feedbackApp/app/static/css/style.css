@@ -1,0 +1,41 @@
+
+.main{
+	opacity:0.6;
+	width: 300px;
+	height:300px;
+}
+.email,.password{
+	text-align: left;
+	font-size: 20px;
+	width: 300px;
+	
+}
+label,input{
+	display: block;
+}
+.button{
+	background-color: blue;
+	width: 300px;
+	height: 36px;
+	cursor: pointer;
+	color:white;
+	opacity: 0.9;  
+	font-size: 20px;           
+}
+.emailBox,.passBox{
+	width: 300px;
+	height: 30px;
+	border-radius: 2%;
+	border-color: black;
+	text-decoration-color: black;
+}
+p.pass{
+	text-align: right;
+	color:blue;
+}
+a.signup{
+	color:blue;
+}
+h2.title{
+	color:black;
+}

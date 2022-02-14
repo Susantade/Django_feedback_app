@@ -1,0 +1,81 @@
+{% include 'app/base.html' %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up Page</title>
+	<link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+  <title>Sign Up</title>
+
+  <script>
+      $().ready(function(){
+
+          $("#signupForm").validate({
+          // all the constraints for respective fields
+          rules : {
+          email : {
+              required: true
+          },
+          password : {
+              required: true
+          },
+          secret : {
+            required: true
+        }
+          },
+          
+              // specify message as per rules
+          messages : {
+          email : {
+              required:"Please enter your email"
+          },
+          password : {
+              required: "Please enter your password"
+          },
+          secret : {
+            required: "Please enter your secret code"
+        }
+          }
+          });
+          });
+        </script>
+</head>
+  
+  <center>
+  <body>
+    <div class="main">
+  <form action="{% url 'signup' %}" method="POST" id="signupForm">
+    {% csrf_token %}
+
+      <h1><b><i>Sign up</i></b></h1>
+
+      {% if messages %}
+    {% for msg in messages %}
+    <h3 style="color:green">{{msg}}</h3>
+    {% endfor %}
+    {% endif %}
+
+      <p>Already have an account? <a class="signup" href="{% url 'signin' %}">Sign In</a></p>
+
+      <label class="email">Email</label><br>
+      <input class="emailBox" type="text" name="email" /><br>
+      <label class="password">Password</label><br>
+      <input class="passBox" type="password" name="password" /><br>
+      <label class="password">Secret</label><br>
+      <input class="passBox" type="password" name="secret" /><br>
+      <input class="button" type="submit" name="" value="Sign Up" />
+      
+      <p>By clicking the <b>"Sign Up"</b> button, you are creating an account, and you agree to the Terms of use.</p>
+
+  </form>
+    </div>
+  </body>
+  </center>
+  </html>
+

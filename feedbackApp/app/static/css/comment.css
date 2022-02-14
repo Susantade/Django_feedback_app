@@ -1,0 +1,45 @@
+h2{
+    display: table-cell;
+    width: 1px;
+    white-space: nowrap;
+}
+
+span{
+    display: table-cell;
+    padding: o 4px 0 6px;
+    padding-left:400px;
+}
+.container{
+    display: table;
+    width: 100%;
+    padding-top: 4px;
+}
+#comment2{
+    padding-left:50px;
+}
+label{
+    float: left;
+    padding-left: none;
+}
+#textarea2{
+    padding-left: 50px;;
+}
+textarea{
+    outline-color: blue;
+}
+.output{
+    border: 1px solid black;
+    width: 700px;
+    height: 250px;
+    margin: 4px 4px;
+    overflow: auto;
+}
+.button{
+    font-size: 20px;
+    cursor: pointer;
+    margin: 14px 14px;
+    width: 120px;
+    background-color: white;
+    border-radius: 8px;
+    border-color: black;
+}
